@@ -1,0 +1,139 @@
+/* 
+  Interactive Garden — Styles
+  Technique: 3D pre-render + CSS clip-path masking
+*/
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-color: #050a05;
+  --accent-color: #4ade80;
+}
+
+body {
+  background: var(--bg-color);
+  color: white;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Container maintain 16:9 aspect ratio */
+.garden-wrap {
+  position: relative;
+  width: min(100vw, calc(100vh * (16 / 9)));
+  aspect-ratio: 16 / 9;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--bg-color);
+}
+
+.base-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+  z-index: 1;
+}
+
+.zone-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2;
+  transition: opacity 0.4s ease;
+}
+
+.zone-video.playing {
+  opacity: 1;
+}
+
+/* Zone Masks (CSS Clip-Path) */
+.zone-1 { clip-path: polygon(0% 0%, 62% 0%, 42% 56%, 14% 100%, 0% 100%); }
+.zone-2 { clip-path: polygon(62% 0%, 100% 0%, 100% 52%, 42% 56%); }
+.zone-3 { clip-path: polygon(42% 56%, 100% 52%, 100% 100%, 14% 100%); }
+
+/* Interactive Hit Areas */
+.hit-area {
+  position: absolute;
+  inset: 0;
+  cursor: crosshair;
+  z-index: 10;
+  transition: background-color 0.3s ease;
+}
+
+.hit-1 { clip-path: polygon(0% 0%, 62% 0%, 42% 56%, 14% 100%, 0% 100%); }
+.hit-2 { clip-path: polygon(62% 0%, 100% 0%, 100% 52%, 42% 56%); }
+.hit-3 { clip-path: polygon(42% 56%, 100% 52%, 100% 100%, 14% 100%); }
+
+/* Subtle Feedback on Hover */
+.hit-area:hover {
+  background-color: rgba(74, 222, 128, 0.05);
+}
+
+/* Loading State */
+.loader {
+  position: absolute;
+  inset: 0;
+  background: var(--bg-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  transition: opacity 0.8s ease, visibility 0.8s;
+}
+
+.loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(74, 222, 128, 0.1);
+  border-top-color: var(--accent-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loader-text {
+  font-size: 0.8rem;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  color: var(--accent-color);
+  opacity: 0.8;
+}
+
+/* Branding/Credits Overlay */
+.overlay-info {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 20;
+  font-size: 0.7rem;
+  opacity: 0.4;
+  pointer-events: none;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}

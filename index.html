@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Interactive Garden — AI-Generated Hyperrealism</title>
+    <meta name="title" content="Interactive Garden — AI-Generated Hyperrealism">
+    <meta name="description" content="What if you could touch the photorealism of AI video? An experimental interactive garden bridging Google Veo generation with web-based interaction masks.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.com/vivianchi/interactive-garden">
+    <meta property="og:title" content="Interactive Garden — AI-Generated Hyperrealism">
+    <meta property="og:description" content="Explore a stunning interactive garden where nature blooms on hover.">
+    <meta property="og:image" content="assets/Preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Interactive Garden — AI-Generated Hyperrealism">
+    <meta property="twitter:description" content="Explore a stunning interactive garden where nature blooms on hover.">
+    <meta property="twitter:image" content="assets/Preview.png">
+
+    <!-- Preload critical assets -->
+    <link rel="preload" href="assets/Preview.png" as="image">
+    
+    <!-- App Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Loading Screen -->
+    <div class="loader">
+        <div class="spinner"></div>
+        <p class="loader-text">Cultivating Garden</p>
+    </div>
+
+    <div class="garden-wrap">
+        <!-- Static Background (No flowers) -->
+        <img class="base-image" src="assets/garden-base.png" alt="Interactive Garden Background" draggable="false">
+
+        <!-- Pre-rendered Bloom Videos (Clipped into zones) -->
+        <video id="v1" class="zone-video zone-1" src="assets/garden-interaction.mp4" muted playsinline preload="auto"></video>
+        <video id="v2" class="zone-video zone-2" src="assets/garden-interaction.mp4" muted playsinline preload="auto"></video>
+        <video id="v3" class="zone-video zone-3" src="assets/garden-interaction.mp4" muted playsinline preload="auto"></video>
+
+        <!-- Invisible Hit Areas (Triggering animations) -->
+        <div class="hit-area hit-1" data-video="v1" aria-label="Interact with left garden zone"></div>
+        <div class="hit-area hit-2" data-video="v2" aria-label="Interact with top right garden zone"></div>
+        <div class="hit-area hit-3" data-video="v3" aria-label="Interact with bottom garden zone"></div>
+
+        <div class="overlay-info">Interactive 3D Experience — Hover to Bloom</div>
+    </div>
+
+    <!-- App Logic -->
+    <script src="script.js"></script>
+</body>
+</html>

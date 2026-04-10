@@ -1,0 +1,25 @@
+# System Files
+.DS_Store
+Thumbs.db
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# Development Scratchpads / Archives
+archive/
+*.tmp
+*.log
+
+# Personal/Editor Settings
+.vscode/
+.idea/
+.claude/
+docs/CLAUDE.md
+docs/interactive-garden-plan.md
+task.md
+implementation_plan.md
+walkthrough.md
