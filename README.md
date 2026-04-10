@@ -4,6 +4,8 @@
 
 This project pushes the boundaries of the web, transforming static AI imagery into a living, breathing, and responsive environment. By blending high-fidelity generative video with lightweight CSS masking, we’ve created a seamless bridge between hyperrealism and user interaction.
 
+[Live Demo](https://vivian-chi.github.io/interactive-garden/)
+
 ![Garden Preview](assets/Preview.png)
 
 ## ✨ The Vision
