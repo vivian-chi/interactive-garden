@@ -15,7 +15,7 @@ Instead of traditional 3D modeling, which is time-consuming and often falls shor
 
 - **Visual Generation**: **Nano Banana** for the initial hyperrealistic static scene.
 - **Animation**: **Google Veo** for the photorealistic flower bloom-and-fade sequence.
-- **Interactivity**: **Antigravity (Claude Code)** for the custom interaction logic and CSS masking system.
+- **Interactivity**: **Claude Code** for the custom interaction logic and CSS masking system.
 - **Core Web**: Vanilla JS and CSS for a zero-dependency, high-performance experience.
 
 ## 🕹️ How it Works
